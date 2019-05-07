@@ -8,7 +8,7 @@ const initialState = {
 const loginReducer = (state = initialState, action) => {
     let newState = {...state};
     if (action.type === 'LOGIN_SUCCESS') {
-        if (action.credential.email === newState.username && action.credential.password === newState.password) {
+        if (action.credential.email.toLowerCase() === newState.username.toLowerCase() && action.credential.password.toLowerCase() === newState.password.toLowerCase()) {
             return {
                 ...state,
                 loginError: false,

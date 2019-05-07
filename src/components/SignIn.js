@@ -29,13 +29,20 @@ class SignIn extends Component {
     if ((!email || !password)) {
       formIsValid = false;
     }
+    if (!this.validateEmail(email)) {
+      formIsValid = false;
+    }
     if (formIsValid) {
       return true;
     }  
   }
 
+  validateEmail = (email) => {
+    let re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  }
+
   render() {
-    console.log(this.props);
     return (
       <div className="container">
           <form onSubmit={this.handleSubmit} className="white">
